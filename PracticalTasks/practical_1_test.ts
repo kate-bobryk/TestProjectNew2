@@ -50,5 +50,4 @@ console.log(null == undefined);
 console.log(null == 0);
 console.log(false == undefined);
 console.log("" == undefined);
-console.log("" == null);
 })
