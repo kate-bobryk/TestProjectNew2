@@ -9,7 +9,8 @@
         "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
         "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
         "check-types": "tsc --skipLibCheck --noEmit",
-        "lint": "npx eslint PracticalTasks/**/*.ts && npm run check-types"
+        "lint": "npx eslint PracticalTasks/**/*.ts && npm run check-types",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@codeceptjs/configure": "^0.10.0",
@@ -28,6 +29,7 @@
         "playwright": "^1.39.0",
         "prettier": "^3.0.3",
         "ts-node": "^10.9.1",
-        "typescript": "^5.2.2"
+        "typescript": "^5.2.2",
+        "husky": "^8.0.0"
     }
 }
