@@ -1,0 +1,40 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "node": true
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "plugins": ["prettier", "unused-imports", "no-floating-promise"],
+  "overrides": [
+    {
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-function-return-type": 2,
+        "@typescript-eslint/no-explicit-any": 1,
+        "no-unreachable": "error"
+      }
+    }
+  ],
+  "rules": {
+    "class-methods-use-this": "off",
+    "prettier/prettier": ["error", { "trailingComma": "all", "printWidth": 120 }],
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "no-restricted-globals": "off",
+    "no-use-before-define": ["warn", { "functions": true }],
+    "require-await": 2,
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": "error",
+    "no-floating-promise/no-floating-promise": "error"
+  },
+  "globals": {
+    "window": false,
+    "Data": false,
+    "actor": false,
+    "within": false,
+    "Feature": false,
+    "Scenario": false
+  }
+}
