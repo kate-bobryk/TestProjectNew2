@@ -70,7 +70,7 @@ Scenario("PZ3 Array and its methods", () => {
   console.log(animals.includes("cat"));
   console.log(plants.includes("dragon", 2));
 
-  //join() - 	joins all elements of the array into a string;
+  //join() - joins all elements of the array into a string;
   console.log(plants.join(" + "));
   console.log(animals.join(" , "));
   //const planet = (fifthString.split(",")); - vise versa join();
@@ -94,14 +94,8 @@ Scenario("PZ3 Array and its methods", () => {
 
   //toLocaleString() - returns a localized string representing the array;
   console.log(animals.toLocaleString());
-  //console.log(number.toLocaleString('hi-IN', {
-  // style: 'currency',
-  // currency: 'INR'
-  // }));
-  //let date = new Date(Date.UTC(2022, 06, 06, 12, 0, 0));
-  //console.log(date.toLocaleString()); // Expected output: 7/6/2022, 12:00:00 PM
 
-  //at() - returns the array item at the given index,accepts negative integers, which count back from the last item.
+  //at() - returns the array item at the given index, accepts negative integers, which count back from the last item.
   console.log(plants.at(0));
   console.log(animals.at(-2));
 
