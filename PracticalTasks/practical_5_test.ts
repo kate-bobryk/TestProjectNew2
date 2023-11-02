@@ -1,3 +1,5 @@
+import { randomInt } from "crypto";
+
 Feature("Practical Task Number 5 - Date and Type conversion");
 Scenario("PZ3 Date type @C01", () => {
   //вывести текущую дату/время используя toLocaleString() - method of Date instances returns a string with a language-sensitive representation of this date.
@@ -27,16 +29,18 @@ Scenario("PZ3 Date type @C01", () => {
   //создать функцию, в кот. сначала фиксируется текущее время,
   //потом вызывается функция, где мы хотим посмотреть сколько она выполняется и снова фиксируется время,
   //а затем возвращается разница в миллисекундах.
-  function someFunc(z: number, y: number): number {
-    return z + y;
+  function main(): number {
+    const variable = (): number => randomInt(50);
+    return Math.log(variable()) * Math.sqrt(variable()) - Math.exp(variable());
   }
   function timeTracker(): number {
-    const start = (): number => new Date().getTime();
-    someFunc(5, 6);
-    const end = (): number => new Date().getTime();
-    return start() - end();
+    const getCurrentTime = (): number => new Date().getTime();
+    const start = getCurrentTime();
+    main();
+    const end = getCurrentTime();
+    return start - end;
   }
-  console.log("Время выполнения timeTracker = " + timeTracker()); //0
+  console.log("Executing time of timeTracker = " + timeTracker());
 });
 Scenario("PZ3 Type formatting @C02", () => {
   //преобразование типов (строка в число и обратно): использовать .toString(), .Number().
@@ -72,7 +76,7 @@ Scenario("PZ3 Type formatting @C02", () => {
   console.log("Planets before Earth are: " + planetsBeforeEarth.join(", "));
 
   //создать переменную типа массив содержащую планеты после Земли:
-  const planetsAfterEarth: string[] = planets.slice(planets.indexOf("Earth") + 1, 8);
+  const planetsAfterEarth: string[] = planets.slice(planets.indexOf("Earth") + 1, planets.length); //либо не ставить end parametr
   //вывести в консоль текст (планеты после земли это ...) и перечисление планет через запятую:
   console.log("Planets after Earth are: " + planetsAfterEarth.join(", "));
 });
