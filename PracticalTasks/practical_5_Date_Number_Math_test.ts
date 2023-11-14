@@ -1,7 +1,7 @@
 import { randomInt } from "crypto";
 
-Feature("Practical Task Number 5 - Date and Type conversion");
-Scenario("PZ3 Date type @C01", () => {
+Feature("Practical Task Number 5 - Date, Math, Number and Type conversion");
+Scenario("PZ5 @C051 Date type", () => {
   //вывести текущую дату/время используя toLocaleString() - method of Date instances returns a string with a language-sensitive representation of this date.
   //Poland time:
   const todayDate: Date = new Date();
@@ -42,7 +42,53 @@ Scenario("PZ3 Date type @C01", () => {
   }
   console.log("Executing time of timeTracker = " + timeTracker());
 });
-Scenario("PZ3 Type formatting @C02", () => {
+
+Scenario("PZ5 @C052 Number and Math", () => {
+  //Math.max() static method returns the largest of the numbers given as input parameters, or -Infinity if there are no parameters.
+  //Math.min() static method returns the smallest of the numbers given as input parameters, or Infinity if there are no parameters.
+  const arrayN1: number[] = [1, 14, 15, -5, 27, 0, 34];
+  console.log("The min value from arrayN1 is " + Math.min(...arrayN1));
+  console.log(`The max value from arrayN1 is ${Math.max(...arrayN1)}`);
+
+  //Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number.
+  console.log(Math.floor(1.95));
+  console.log(Math.floor(-1.95));
+
+  //Math.random() static method returns a floating-point, pseudo-random number that's greater than or equal to 0 and less than 1.
+  const arrayN: number[] = Array(10) //array size is 10,
+    .fill(undefined)
+    .map(() => Math.floor(30 * Math.random())); //numbers from 0-30 (exclusive).
+  console.log(arrayN);
+
+  //Math.sign() static method returns 1 or -1, indicating the sign of the number passed as argument. If the input is 0 or -0, it will be returned as-is.
+  console.log(Math.sign(7));
+  console.log(Math.sign(-7));
+
+  //Math.round() method for the different number values:
+  const number1 = 345.345; //number with decimal part near to zero,
+  const number2 = 0.0300011; //number between 0 and 1,
+  const number3 = 345.988; //number with decimal part near to one,
+  const number4 = Infinity; //infinity value.
+  console.log("After rounding the " + number1 + " it's value is " + Math.round(number1));
+  console.log("After rounding the " + number2 + " it's value is " + Math.round(number2));
+  console.log("After rounding the " + number3 + " it's value is " + Math.round(number3));
+  console.log("After rounding the " + number4 + " it's value is " + Math.round(number4));
+
+  //Math.ceil() - static method always rounds up and returns the smallest integer greater than or equal to a given number.
+  console.log("The smallest integer greater than or equal to 0,99 is " + Math.ceil(0.99));
+  console.log("The smallest integer greater than or equal to 6,01 is " + Math.ceil(6.01));
+
+  //Math.abs() static method returns the absolute value of a number.
+  function difference(numberA: number, numberB: number): number {
+    return Math.abs(numberA - numberB);
+  }
+  console.log("Difference between 2 and 10 is " + difference(2, 10));
+
+  //Math.trunc() static method returns the integer part of a number by removing any fractional digits.
+  console.log("Integer part of a number 15,55 is " + Math.trunc(15.55));
+});
+
+Scenario("PZ5 @C053 Type conversion Number <-> String", () => {
   //преобразование типов (строка в число и обратно): использовать .toString(), .Number().
   //создать переменную value1 = "5", и переменную value2 = 5:
   const value1: string = "5";

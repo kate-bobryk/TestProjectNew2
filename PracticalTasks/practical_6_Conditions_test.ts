@@ -1,5 +1,5 @@
-Feature("Practical Task Number 6 - Conditions and Cycles, Logical Operations");
-Scenario("PZ6 Logical operations @C01", () => {
+Feature("Practical Task Number 6 - Conditions and Logical Operations");
+Scenario("PZ6 @C061 Logical operations", () => {
   const num: number = 7;
   const num2: number = 5;
   //const strNum = "5";
@@ -11,20 +11,16 @@ Scenario("PZ6 Logical operations @C01", () => {
   //console.log(result3);
 
   //операция && возвращает true, если оба операнда возвращают true, иначе возвращает false:
-  //console.log(true && true);  //true
-  //console.log(true && false); //false
-  //console.log(false && false); //false
-  const age: number = 20;
-  age <= 18 && console.log("Age less than 18 years old. Access denied.");
-  age > 18 && console.log("Age more than 18 years old. Access provided.");
-  //&& возвращает второй операнд, если первый равен true, сначала выполняется первая операцию &&
+  console.log(5 < 7 && 7 > 5); //true
+  console.log(5 < 7 && 7 < 5); //false
+  //&& возвращает второй операнд, если первый равен true, сначала выполняется первая операцию &&;
 
   //операция || возвращает true, если хотя бы один из операндов равен true, иначе операция || возвращает false:
-  //console.log(true || true);  //true
-  //console.log(true || false); //true
-  //console.log(false || false); //false
+  console.log(5 < 7 || 7 > 5); //true
+  console.log(5 < 7 || 7 < 5); //true
   const money: number = 100;
   // проверяем, что age больше 18 или money больше 1000
+  const age: number = 21;
   const access1: boolean = age > 18 || money > 100;
   console.log(access1);
 
@@ -98,24 +94,19 @@ Scenario("PZ6 Logical operations @C01", () => {
   console.log(text); //переменная text равна null, поэтому при посредстве оператора ??= она получает значение переменной message)
 });
 
-Scenario("PZ6 Conditions @C02", () => {
+Scenario("PZ6 @C062 Conditions", () => {
   //if (действия, если условие = true) пример:
   const income: number = 100;
   const age: number = 19;
-  //если одно условие, то убираем скобки if(income > 50) console.log("доход больше 50");
+  //если одно условие, то убираем скобки, пример: if(income > 50) console.log("income more than 50");
   //если 2+ условия, то скобки оставляем:
   if (income > 50 && age > 18) {
     console.log("income more than 50");
     console.log("age more than 18");
   }
 
-  //else (действия, если условие = false) пример:
-  //if(условие){
-  //    действия, если условие true
-  //}
-  //else{
-  //    действия, если условие false
-  //};
+  //else (действия, если условие = false);
+  //блок else применять необязательно;
   //если блок else содержит одну инструкцию, то можно сократить:
   const income2: number = 49;
   if (income2 > 50) console.log("income more than 50");
@@ -129,28 +120,13 @@ Scenario("PZ6 Conditions @C02", () => {
   } else {
     console.log("income less than 50");
   }
-  //блок else применять необязательно;
 
-  //switch..case
+  //switch..case:
   //switch(сравниваемое выражение){
   //    case (сравнимое значение) :
   //        console.log(выполняемое действие);
   //        break;
   //};
-  //example:
-  //const income = 200;
-  //switch(income){
-  //    case 100 :
-  //        console.log("Доход равен 100");
-  //        break;
-  //    case 200 :
-  //        console.log("Доход равен 200");
-  //        break;
-  //    case 300 :
-  //        console.log("Доход равен 300");
-  //        break;
-  //};
-
   //break служит для того, чтобы избежать выполнения других условий.
   //default - условие по умолчанию, для ситуации, когда совпадения не будет найдено, то можно добавить необязательный блок default;
 
@@ -173,30 +149,19 @@ Scenario("PZ6 Conditions @C02", () => {
   checkWordLength2("language");
 
   //cоздать функцию аналогичную первой но используя не if else конструкцию а condition ? true : false (Тернарная операция);
+  //const sum = (x: number, y: number) => x + y.
   const checkString3 = (a: string): string => (a.length > 7 ? "long word" : "short word");
   console.log(checkString3("justAnotherString"));
   console.log(checkString3("another"));
-  //const sum = (x: number, y: number) => x + y.
 });
 
-Scenario("PZ6 Conditions and Logical Operations @C03", () => {
+Scenario("PZ6 @C063 Checking date function", () => {
   //написать функцию проверки и вывода даты, в которую мы будем передавать месяц день и год в формате number
   //и которая после проверки (что мы не вводили отрицательных значений и т.д), если числа правильные, будет вызывать функцию вывода в консоль даты
   //дата в формате f.e. "The 11 of November, 2023" (не используя формат Date а делая выбор месяца через switch case).
 
-  //example of printDate function with Date object:
-  // const inputDate: Date = new Date(2023, 13, 9);
-  // function printDate(date: Date): void {
-  //     const day: number = date.getDay();
-  //     const monthName: string = date.toLocaleString('default', { month: 'long' });
-  //     //console.log(monthName);
-  //     const year: number = date.getFullYear();
-  //     console.log(`The ${day} of ${monthName}, ${year}`);
-  // }
-  // printDate(inputDate);
-
   //example 1:
-  function printDateEx1(a: number, b: number, c: number): void {
+  function printDataEx1(a: number, b: number, c: number): void {
     let month: string;
     switch (b) {
       case 1:
@@ -237,7 +202,7 @@ Scenario("PZ6 Conditions and Logical Operations @C03", () => {
     }
     console.log(`The ${a} of ${month}, ${c}`);
   }
-  printDateEx1(10, 12, 2023);
+  printDataEx1(10, 12, 2023);
 
   //Number.isInteger() метод, который проверяет целое число или нет;
   //! - возвращает true, если операнд равен false, и возвращает false, если операнд равен true;
@@ -254,53 +219,12 @@ Scenario("PZ6 Conditions and Logical Operations @C03", () => {
     } else if (!Number.isInteger(c) || c <= 0) {
       console.log("Invalid year number. Please provide an integer greater than 0.");
     } else {
-      printDateEx1(a, b, c);
+      printDataEx1(a, b, c);
     }
   }
   checkDataEx1(31, 4, 2023);
 
   //example 2:
-  function printDataEx2(day: number, month: number, year: number): void {
-    let monthName: string;
-    switch (month) {
-      case 1:
-        monthName = "January";
-        break;
-      case 2:
-        monthName = "February";
-        break;
-      case 3:
-        monthName = "March";
-        break;
-      case 4:
-        monthName = "April";
-        break;
-      case 5:
-        monthName = "May";
-        break;
-      case 6:
-        monthName = "June";
-        break;
-      case 7:
-        monthName = "July";
-        break;
-      case 8:
-        monthName = "August";
-        break;
-      case 9:
-        monthName = "September";
-        break;
-      case 10:
-        monthName = "October";
-        break;
-      case 11:
-        monthName = "November";
-        break;
-      default:
-        monthName = "December";
-    }
-    console.log("The " + day + " of " + monthName + ", " + year);
-  }
   function printDataSecondEx2(day: number, month: number, year: number): void {
     const monthName = (month: number): string => {
       return {
@@ -366,14 +290,14 @@ Scenario("PZ6 Conditions and Logical Operations @C03", () => {
           console.log("We can't have more then 29 days in February!");
         } else {
           if ((year % 4 == 0 && month == 2 && day <= 29) || (year % 4 != 0 && month == 2 && day <= 28)) {
-            printDataEx2(day, month, year);
+            printDataEx1(day, month, year);
             printDataSecondEx2(day, month, year);
             printDataThirdEx2(day, month, year);
           } else {
             if (year % 4 != 0 && month == 2 && day == 29) {
               console.log("In this year we can't have 29 of February!");
             } else {
-              printDataEx2(day, month, year);
+              printDataEx1(day, month, year);
               printDataSecondEx2(day, month, year);
               printDataThirdEx2(day, month, year);
             }
@@ -383,7 +307,7 @@ Scenario("PZ6 Conditions and Logical Operations @C03", () => {
         if (day > 31) {
           console.log("We can't have more then 31 days in this month!");
         } else {
-          printDataEx2(day, month, year);
+          printDataEx1(day, month, year);
           printDataSecondEx2(day, month, year);
           printDataThirdEx2(day, month, year);
         }

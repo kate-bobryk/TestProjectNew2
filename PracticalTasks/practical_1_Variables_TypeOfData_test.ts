@@ -1,6 +1,5 @@
 Feature("Practical Task Number 1 - Variables and Type of Data");
-
-Scenario("PZ1 Variables and Type of Data", () => {
+Scenario("PZ1 @CO11 Variables and Type of Data", () => {
   let variableA: number = 10;
   console.log(`variableA: ${variableA}, ++variableA: ${++variableA}`);
   console.log(`variableA: ${variableA}, variableA++: ${variableA++}, variableA: ${variableA}`);
