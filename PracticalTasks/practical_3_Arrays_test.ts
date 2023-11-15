@@ -1,6 +1,5 @@
-Feature("Practical Task Number 3 - Array and its methods");
-
-Scenario("PZ3 Array and its methods", () => {
+Feature("Practical Task Number 3 - Arrays");
+Scenario("PZ3 @CO31 Arrays", () => {
   let plants: string[] = ["cactus", "pine", "chamomile", "basil", "oak"];
   let animals: Array<string>;
   animals = ["cat", "dog", "bird", "beaver", "cow", "raccoon"];
@@ -38,8 +37,6 @@ Scenario("PZ3 Array and its methods", () => {
   console.log(plants.copyWithin(1, 2, 3));
   console.log(plants);
   console.log(animals);
-  // console.log(animals.copyWithin(-2, 0, 5));
-  // console.log(animals);
 
   //fill() - fills the array with a static value from the provided start index to the end index;
   console.log(plants);
@@ -73,8 +70,7 @@ Scenario("PZ3 Array and its methods", () => {
   //join() - joins all elements of the array into a string;
   console.log(plants.join(" + "));
   console.log(animals.join(" , "));
-  //const planet = (fifthString.split(",")); - vise versa join();
-  //console.log(typeof planet); // "object"
+  //split() - vise versa join(), return object;
 
   plants = ["semolina", "buckwheat", "dragon", "fly", "lavender", "pine"];
   animals = ["tiger", "bird", "cat", "cow", "dog", "pigeon"];
@@ -109,9 +105,41 @@ Scenario("PZ3 Array and its methods", () => {
   const string2: string = "Every day you should smile at once.";
   console.log(string1.search("is"));
   console.log(string2.search("you"));
-  const newString = string1.slice(0, string1.search("is")) + string2.slice(string2.search("you"));
+  const newString: string = string1.slice(0, string1.search("is")) + string2.slice(string2.search("you"));
   console.log(newString);
   console.log(newString.split(" "));
-  const newString2 = newString.split(" ");
+  const newString2: string[] = newString.split(" ");
   console.log(newString2.length);
+
+  //практика с массивами: реализовать метод filter(), вывести результат в консоль:
+  //filter() method creates a new array with all elements that pass the test implemented by the provided function.
+  const numbers: number[] = [-1, 0, 5, 25, 34, 100];
+  const filteredNumbers: number[] = numbers.filter((num: number): boolean => num <= 25);
+  console.log(`Filtered number are ${filteredNumbers}`);
+  //example 2:
+  const fruits: string[] = ["Apple", "Banana", "Apricot"];
+  //const startsWithA = (name: string) => name.startsWith('A');
+  const filteredFruits: string[] = fruits.filter((name: string) => name.startsWith("A"));
+  console.log("Filtered fruits are " + filteredFruits);
+  //example 3:
+  const words: string[] = ["bla", "blabla", "blablabla"];
+  const result: string[] = words.filter((word: string): boolean => word.length > 5);
+  console.log(result);
+
+  //практика с массивами: реализовать метод find(), вывести результат в консоль:
+  //find() method of Array instances returns the first element in the provided array that satisfies the testing function.
+  const numbers1: number[] = [-1, 10, 0.555, -100];
+  const result2: number = numbers1.find((element: number): boolean => element > 0);
+  console.log("Elements bigger than 0 is " + result2);
+  //example 2:
+  const list: { name: string; id: number }[] = [
+    { name: "John", id: 1 },
+    { name: "Jimmy", id: 2 },
+  ];
+  const listResult: { name: string; id: number } = list.find(({ name }): boolean => name == "John");
+  const listResult2: { name: string; id: number } = list.find(({ name }): boolean => name != "Jimmy");
+  list.push({ name: "Jack", id: 3 });
+  console.log(list);
+  console.log(listResult);
+  console.log(listResult2);
 });

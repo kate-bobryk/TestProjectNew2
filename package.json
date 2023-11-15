@@ -2,7 +2,7 @@
     "name": "TestProject",
     "version": "1.0.0",
     "scripts": {
-        "codeceptjs": "codeceptjs run --steps",
+        "codeceptjs": "codeceptjs run --steps --grep @C01 PracticalTasks/practical_5_test.ts",
         "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
         "codeceptjs:ui": "codecept-ui --app",
         "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
@@ -10,6 +10,7 @@
         "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
         "check-types": "tsc --skipLibCheck --noEmit",
         "lint": "npx eslint PracticalTasks/**/*.ts && npm run check-types",
+        "lint:fix": "npx eslint PracticalTasks/**/*.ts --fix",
         "prepare": "husky install"
     },
     "devDependencies": {
