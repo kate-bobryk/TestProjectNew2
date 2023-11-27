@@ -28,40 +28,40 @@ export class User {
     this._name = n;
   }
 
-  public get surname(): string {
+  public getSurname(): string {
     return this._surname;
   }
 
-  public set surname(s: string) {
+  public setSurname(s: string): void {
     this._surname = s;
   }
-  public get age(): number {
+  public getAge(): number {
     return this._age;
   }
 
-  public set age(a: number) {
+  public setAge(a: number): void {
     this._age = a;
   }
 
-  public get country(): string {
+  public getCountry(): string {
     return this._country;
   }
 
-  public set country(c: string) {
+  public setCountry(c: string): void {
     this._country = c;
   }
 
-  public get phoneNumber(): number {
+  public getPhoneNumber(): number {
     return this._phoneNumber;
   }
 
-  public set phoneNumber(p: number) {
+  public setPhoneNumber(p: number): void {
     this._phoneNumber = p;
   }
 
   public print(): void {
     console.log(
-      `${this._name}  ${this._surname} ${this._age} years from ${this._country} have phone number ${this._phoneNumber}`,
-    ); //Ivan Antonov 25 years from Poland have phone number +48111111111
+      `${this._name}  ${this._surname} ${this._age} years from ${this._country} have phone number +${this._phoneNumber}`,
+    ); //Ivan Antonov 25 years from Poland have phone number 111111111
   }
 }

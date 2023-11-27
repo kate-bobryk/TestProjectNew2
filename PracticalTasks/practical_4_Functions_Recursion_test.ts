@@ -187,20 +187,4 @@ Scenario("PZ4 @C042 Recursion", () => {
   const arrayN: number[] = [1, 2, 3, 4, 5, 6];
   const resultN: number = sumRecursive(arrayN);
   console.log(resultN); //21;
-
-  //написать функцию, используя только рекурсию, которая будет выводить YES, если число кратное 2м и NO, если не кратное;
-  function checkForTwo(n: number): string {
-    if (n === 1) {
-      return "YES";
-    }
-
-    if (n % 2 !== 0) {
-      return "NO";
-    }
-
-    return checkForTwo(n / 2);
-  }
-
-  console.log(checkForTwo(16)); //YES;
-  console.log(checkForTwo(15)); //NO;
 });
