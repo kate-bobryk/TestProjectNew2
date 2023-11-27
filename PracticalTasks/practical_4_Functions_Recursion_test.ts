@@ -97,4 +97,110 @@ Scenario("PZ4 @C041 Functions", () => {
   isBelowThreshold(15, 40, -12, 52);
 });
 
-Scenario.skip("PZ4 @C042 Recursion", () => {});
+Scenario("PZ4 @C042 Recursion", () => {
+  //реализовать функцию вычисления факториала числа;
+  //факториал числа (n!) - это произведение всех положительных целых чисел от 1 до этого числа;
+  //факториал числа равен произведению n на факториал числа (n−1);
+  //например 5!=5×4×3×2×1=120
+  function factorial(n): number {
+    //при вызове factorial(n), сначала проверяется условие: если n равно 1, то функция возвращает 1, если не равно, то переходим в блок else
+    if (n === 1) {
+      return 1;
+    } else {
+      //каждый рекурсивный вызов умножает текущее значение n на результат факториала для (n - 1):
+      //умножаем текущее значение n (5) на результат факториала для (n - 1) = factorial(4) и тд;
+      return n * factorial(n - 1);
+    }
+  }
+  const resultFactorial = factorial(5);
+  const resultFactorial1 = factorial(1);
+  console.log(resultFactorial); //120;
+  console.log(resultFactorial1); //1; - базовый случай: если n равно 1, то функция возвращает 1;
+  //factorial(5) = 5 * factorial(4)
+  // = 5 * (4 * factorial(3))
+  // = 5 * (4 * (3 * factorial(2)))
+  // = 5 * (4 * (3 * (2 * factorial(1))))
+  // = 5 * (4 * (3 * (2 * 1)))
+  // = 5 * (4 * (3 * 2))
+  // = 5 * (4 * 6)
+  // = 5 * 24 = 120;
+
+  //реализовать функцию определения числа Фибоначчи;
+  //числа Фибоначчи - это последовательность чисел, где каждое следующее число равно сумме двух предыдущих, начинается с 0 и 1.
+  function fibonacci(n): number {
+    if (n === 0 || n === 1) {
+      return n;
+    } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+  }
+
+  const resultFibonacci = fibonacci(7);
+  console.log(resultFibonacci); //13;
+  // fibonacci(7) вызывает fibonacci(6) + fibonacci(5).
+  // fibonacci(6) вызывает fibonacci(5) + fibonacci(4).
+  // fibonacci(5) вызывает fibonacci(4) + fibonacci(3).
+  // fibonacci(4) вызывает fibonacci(3) + fibonacci(2).
+  // fibonacci(3) вызывает fibonacci(2) + fibonacci(1).
+  // fibonacci(2) вызывает fibonacci(1) + fibonacci(0).
+  // fibonacci(1) равно 1.
+  // fibonacci(0) равно 0.
+  // fibonacci(2) равно 1 + 0, что равно 1.
+  // fibonacci(3) равно 1 + 1, что равно 2.
+  // fibonacci(4) равно 2 + 1, что равно 3.
+  // fibonacci(5) равно 3 + 2, что равно 5.
+  // fibonacci(6) равно 5 + 3, что равно 8.
+  // fibonacci(7) равно 8 + 5, что равно 13.
+
+  //реализовать функцию вычисления экспоненты числа;
+  //экспонента - функция, где число Эйлера e (e≈2,718) возводится в степень аргумента x;
+  //example 1:
+  //Math.exp() - static method returns e raised to the power of a number;
+  const exponentMath = (a: number, n: number): number => {
+    return Math.exp(n * Math.log(a));
+  };
+
+  console.log(exponentMath(4, 2)); //15.999999999999998;
+
+  //example 2:
+  const exponent = (a: number, n: number): number => {
+    if (n === 0) {
+      return 1;
+    } else {
+      return a * exponent(a, n - 1);
+    }
+  };
+
+  console.log(exponent(4, 2)); //16;
+
+  //написать функцию, используя только рекурсию, которая будет выводить сумму всех цифр из массива чисел;
+  function sumRecursive(array: number[], index: number = 0): number {
+    //базовый случай: если индекс выходит за пределы массива, возвращаем 0 и останавливаем рекурсию;
+    if (index >= array.length) {
+      return 0;
+    }
+    //складываем текущий элемент с суммой оставшихся элементов;
+    //когда функция вызывается с новым индексом, она добавляет значение текущего элемента к результату вызова для следующего индекса;
+    return array[index] + sumRecursive(array, index + 1);
+  }
+
+  const arrayN: number[] = [1, 2, 3, 4, 5, 6];
+  const resultN: number = sumRecursive(arrayN);
+  console.log(resultN); //21;
+
+  //написать функцию, используя только рекурсию, которая будет выводить YES, если число кратное 2м и NO, если не кратное;
+  function checkForTwo(n: number): string {
+    if (n === 1) {
+      return "YES";
+    }
+
+    if (n % 2 !== 0) {
+      return "NO";
+    }
+
+    return checkForTwo(n / 2);
+  }
+
+  console.log(checkForTwo(16)); //YES;
+  console.log(checkForTwo(15)); //NO;
+});
