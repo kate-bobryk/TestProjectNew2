@@ -126,3 +126,59 @@ Scenario("PZ5 @C053 Type conversion Number <-> String", () => {
   //вывести в консоль текст (планеты после земли это ...) и перечисление планет через запятую:
   console.log("Planets after Earth are: " + planetsAfterEarth.join(", "));
 });
+
+Scenario("PZ5 @C054 Methods for Number type", () => {
+  //реализовать свои примеры использования методов для работы с объектами Number:
+  //isNaN() - определяет, является ли объект числом, если объект не является числом, то возвращается значение true;
+  //isNaN() преобразует тестируемое значение в число, а затем проверяет его;
+  //Number. isNaN() не преобразует значения в число и не возвращает true для любого значения, которое не относится к типу Number;
+  //Например, деление нуля на нуль возвращает NaN — но деление других чисел на 0 не возвращает NaN.
+  function checkNaN(x: number, y: number): void {
+    const result: number = x.valueOf() / y.valueOf();
+    //valueOf() возвращает примитивное значение объекта Number
+    if (isNaN(result) && x.valueOf() === 0 && y.valueOf() === 0) {
+      console.log("Result is NaN");
+    } else if (x.valueOf() > 0 && y.valueOf() === 0) {
+      console.log("Result is not NaN");
+    } else {
+      console.log(result);
+    }
+  }
+
+  const numX: number = Number("5");
+  const numY: number = Number(0);
+  checkNaN(numX, numY); //"Result is not NaN"
+  //const numX: Number = new Number("0");
+  //const numY: Number = new Number(0);
+  //checkNaN(numX, numY);  //"Result is NaN"
+
+  //parseFloat() - преобразует строку в число с плавающей точкой;
+  function whatPrice(price: number): void {
+    const updatedPrice: number = Number.parseFloat(price.toString());
+
+    if (!isNaN(updatedPrice)) {
+      console.log(`Price is ${updatedPrice}`);
+    } else {
+      console.log(`Invalid price: ${price}`);
+    }
+  }
+  const first: number = Number.parseFloat("16.50000000");
+  whatPrice(first); //Price is 16.5
+  const second: number = Number.parseFloat("15hello");
+  whatPrice(second); //Price is 15
+
+  //parseInt() - преобразует строку в целое число;
+  const a: number = Number.parseInt("15.99");
+  console.log(a);
+  const b: number = Number.parseInt("-9.999");
+  console.log(b);
+
+  //toFixed() - оставляет в числе с плавающей точкой определенное количество знаков в дробной части;
+  const c = 10 / 3;
+  console.log(c);
+  console.log(c.toFixed(3));
+
+  //toString() - преобразования числа в строку;
+  console.log(c.toString(2));
+  console.log(c.toString(10));
+});
