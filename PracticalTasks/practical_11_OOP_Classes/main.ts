@@ -7,7 +7,7 @@ import { Rectangle } from "./Rectangle";
 
 Feature("Practical Task Number 11 - Abstract Class; Abstract Methods");
 
-Scenario("PZ10 @C01101 Abstract class, abstract methods", () => {
+Scenario("PZ11 @C01101 Abstract class, abstract methods", () => {
   //создать сценарий теста, который рандомно получает значение сторон а и b, если обе константы равны 0 то выкидывается ошибка;
   //если только одно значение ноль, то переменная figure принимает значение созданного экземпляра класса Circle;
   //если a = b то  figure = new Square(a), если a != b то добавляется переменная const corner = [30, 60, 90][randomInt(3)];
