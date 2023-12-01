@@ -1,6 +1,10 @@
 import { Ownership } from "./Ownership";
 import { User } from "./User";
 
+//в файле Validator помимо конструктора принимающего разные наборы данных относящихся к свойствам User и Ownership;
+//реализовать метод getCredit(без параметров) который будет возвращать true или false в зависимости от того дадут кредит или нет;
+//кредит выдают только людям старше 18 лет которые или имеют в собственности квартиру или обладают машиной/кораблем и банковским счетом;
+
 export class Validator2 implements User, Ownership {
   age: number;
   hasBankSavingAcc: boolean;

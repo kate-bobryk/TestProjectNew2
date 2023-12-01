@@ -1,7 +1,5 @@
 import { Validator } from "./Validator";
 import { Validator2 } from "./Validator2";
-// import { User } from "./User";
-// import { Ownership } from "./Ownership";
 
 Feature("Practical Task Number 12 - Interfaces;");
 

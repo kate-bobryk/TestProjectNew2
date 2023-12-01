@@ -5,10 +5,3 @@ export interface Ownership {
   hasCar?: boolean;
   hasShip?: boolean;
 }
-
-// class Ownership implements Ownership {
-//   hasBankSavingAcc: boolean;
-//   hasCar: boolean;
-//   hasHome: boolean;
-//   hasShip: boolean;
-// }
