@@ -1,14 +1,22 @@
-import { LocatorsLoginPage } from "./locators";
+import { LocatorsLoginPage } from "./Locators";
 import LocatorOrString = CodeceptJS.LocatorOrString;
+import { xpath } from "./Decorators";
 
 export class LoginPage {
-  public readonly loginForm = { xpath: LocatorsLoginPage.loginForm };
-  public readonly emailInput = { xpath: LocatorsLoginPage.emailInput };
-  public readonly passwordInput = { xpath: LocatorsLoginPage.passwordInput };
-  public readonly loginButton = { xpath: LocatorsLoginPage.loginButton };
-  public readonly errorMessage = { xpath: LocatorsLoginPage.errorMessage };
-  public readonly clientSideLoginContainer = { xpath: LocatorsLoginPage.clientSideLoginContainer };
-  public readonly serverSideLoginContainer = { xpath: LocatorsLoginPage.serverSideLoginContainer };
+  @xpath
+  public readonly loginForm = LocatorsLoginPage.loginForm;
+  @xpath
+  public readonly emailInput = LocatorsLoginPage.emailInput;
+  @xpath
+  public readonly passwordInput = LocatorsLoginPage.passwordInput;
+  @xpath
+  public readonly loginButton = LocatorsLoginPage.loginButton;
+  @xpath
+  public readonly errorMessage = LocatorsLoginPage.errorMessage;
+  @xpath
+  public readonly clientSideLoginContainer = LocatorsLoginPage.clientSideLoginContainer;
+  @xpath
+  public readonly serverSideLoginContainer = LocatorsLoginPage.serverSideLoginContainer;
   private I: CodeceptJS.I;
 
   public constructor(I: CodeceptJS.I) {
@@ -35,8 +43,11 @@ export class LoginPage {
     }
   }
   public checkErrorMessage(text: string): void {
-    if (text) {
-      text === "Please include a valid email address." || text === "Invalid Password";
-    } else `Invalid text: ${text}`;
+    this.I.waitForVisible(this.errorMessage, 10);
+    this.I.assert(
+      text === "Please include a valid email address." || text === "Invalid Password",
+      true,
+      `Invalid text: ${text}`,
+    );
   }
 }

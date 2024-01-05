@@ -1,7 +1,11 @@
-import { LocatorsCSPage } from "./locators";
+import { LocatorsCSPage } from "./Locators";
+import { xpath } from "./Decorators";
 
 export class ClientSidePage {
-  public readonly serverSideMainContainer = { xpath: LocatorsCSPage.serverSideMainContainer };
-  public readonly clientSideMainContainer = { xpath: LocatorsCSPage.clientSideMainContainer };
-  public readonly profileMenuContainer = { xpath: LocatorsCSPage.profileMenuContainer };
+  @xpath
+  public readonly serverSideMainContainer = LocatorsCSPage.serverSideMainContainer;
+  @xpath
+  public readonly clientSideMainContainer = LocatorsCSPage.clientSideMainContainer;
+  @xpath
+  public readonly profileMenuContainer = LocatorsCSPage.profileMenuContainer;
 }
