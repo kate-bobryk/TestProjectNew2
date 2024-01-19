@@ -1,6 +1,6 @@
 Feature("main");
 
-Scenario("PZ20 @C02001 CodeceptJS Methods", async ({ I }) => {
+Scenario("PZ20 @C02001 CodeceptJS Methods", async ({ I }): Promise<void> => {
   //amOnPage - opens a web page in a browser, requires relative or absolute url;
   //parameters: url string, url path or global url;
   //I.amOnPage('/'); // opens main page of website
